@@ -1,15 +1,15 @@
 {
-  "parser": "@babel/eslint-parser",
   "env": {
     "browser": true,
     "commonjs": true,
     "es2021": true
   },
-  "extends": "eslint:recommended",
+  "extends": "airbnb-base",
   "parserOptions": {
     "ecmaVersion": "latest"
   },
   "rules": {
-    "no-underscore-dangle": ["error", { "allow": ["_id", "__dirname"] }]
+    "no-underscore-dangle": ["error", { "allow": ["_id", "__dirname"]}],
+    "no-console": "off"
   }
 }

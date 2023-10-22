@@ -39,7 +39,7 @@ function signup(req, res, next) {
       }
       return next(error);
     });
-};
+}
 
 function signin(req, res, next) {
   const { email, password } = req.body;
@@ -61,7 +61,16 @@ function signin(req, res, next) {
         });
     })
     .catch(next);
-};
+}
+
+function signout(req, res) {
+  res
+    .clearCookie('jwt')
+    .status(OK)
+    .send({
+      message: 'signed out',
+    });
+}
 
 function getUser(req, res, next) {
   userModel.findById(req.user._id).orFail()
@@ -77,7 +86,7 @@ function getUser(req, res, next) {
       }
       return next(error);
     });
-};
+}
 
 function patchUser(req, res, next) {
   userModel.findByIdAndUpdate(
@@ -100,11 +109,12 @@ function patchUser(req, res, next) {
       }
       return next(error);
     });
-};
+}
 
 module.exports = {
   signup,
   signin,
+  signout,
   getUser,
   patchUser,
 };

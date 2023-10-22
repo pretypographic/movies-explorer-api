@@ -14,7 +14,7 @@ function getMovies(req, res, next) {
       res.status(OK).send(movies);
     })
     .catch(next);
-};
+}
 
 function postMovie(req, res, next) {
   movieModel.create({
@@ -27,17 +27,17 @@ function postMovie(req, res, next) {
     .catch((error) => {
       if (error instanceof mongoose.Error.ValidationError) {
         return next(new BadRequestError('incorrect data'));
-      };
+      }
       return next(error);
     });
-};
+}
 
 function deleteMovie(req, res, next) {
   movieModel.findById(req.params.movieId).orFail()
     .then((movie) => {
       if (req.user._id !== movie.owner._id.toString()) {
         throw new Forbidden('forbidden');
-      };
+      }
       return movieModel.deleteOne({ _id: movie._id });
     })
     .then((removedMovie) => {
@@ -52,7 +52,7 @@ function deleteMovie(req, res, next) {
       }
       return next(error);
     });
-};
+}
 
 module.exports = {
   getMovies,

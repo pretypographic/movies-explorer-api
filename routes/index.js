@@ -5,7 +5,7 @@ const moviesRouter = require('./movies');
 const NotFoundError = require('../errors/not-found-err');
 
 router.get('/', (req, res) => {
-  res.status(200).send('connected')
+  res.status(200).send('connected');
 });
 router.use(usersRouter);
 router.use(moviesRouter);

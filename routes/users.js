@@ -4,6 +4,7 @@ const { celebrate, Joi } = require('celebrate');
 const {
   signup,
   signin,
+  signout,
   getUser,
   patchUser,
 } = require('../controllers/users');
@@ -24,6 +25,10 @@ router.post('/signin', celebrate({
   }),
 }), signin);
 // авторизовать пользователя
+router.post('/signout', celebrate({
+  body: Joi.object().keys({}),
+}), signout);
+// удалить токен
 
 router.get('/users/me', auth, getUser);
 router.patch('/users/me', auth, celebrate({
