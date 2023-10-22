@@ -64,7 +64,7 @@ function signin(req, res, next) {
 };
 
 function getUser(req, res, next) {
-  userModel.findById(req.params.userId).orFail()
+  userModel.findById(req.user._id).orFail()
     .then((user) => {
       res.status(OK).send(user);
     })

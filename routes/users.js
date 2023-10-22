@@ -16,19 +16,17 @@ router.post('/signup', celebrate({
     name: Joi.string().min(2).max(30).required(),
   }),
 }), signup);
-// авторизовать пользователя
+// зарегистрировать пользователя
 router.post('/signin', celebrate({
   body: Joi.object().keys({
     email: Joi.string().email().required(),
     password: Joi.string().min(8).required(),
   }),
 }), signin);
-// зарегистрировать пользователя
-router.use(auth);
-// -- затребовать аутотентификацию --
+// авторизовать пользователя
 
-router.get('/users/me', getUser);
-router.patch('/users/me', celebrate({
+router.get('/users/me', auth, getUser);
+router.patch('/users/me', auth, celebrate({
   body: Joi.object().keys({
     email: Joi.string().email().optional(),
     name: Joi.string().min(2).max(30).optional(),

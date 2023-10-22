@@ -16,3 +16,8 @@ node_modules
 
 # Environment Variables
 .env
+
+# In development
+
+test
+server.js
