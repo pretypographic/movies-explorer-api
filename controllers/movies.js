@@ -1,15 +1,14 @@
 const mongoose = require('mongoose');
 const movieModel = require('../models/movie');
 
-const OK = 200;
-const CREATED = 201;
+const { OK, CREATED } = require('../utils/constants');
 
 const Forbidden = require('../errors/forbidden');
 const BadRequestError = require('../errors/bad-request-err');
 const NotFoundError = require('../errors/not-found-err');
 
 function getMovies(req, res, next) {
-  movieModel.find({})
+  movieModel.find({ owner: req.user._id })
     .then((movies) => {
       res.status(OK).send(movies);
     })

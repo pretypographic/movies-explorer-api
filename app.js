@@ -1,4 +1,5 @@
 const PORT = process.env.PORT || 3000;
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1/bitfilmsdb';
 
 const express = require('express');
 const cors = require('cors');
@@ -15,7 +16,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const index = require('./routes');
 const errorHandler = require('./middlewares/error-handler');
 
-mongoose.connect('mongodb://127.0.0.1/bitfilmsdb');
+mongoose.connect(MONGODB_URI);
 const app = express();
 app.use(cors());
 

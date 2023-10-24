@@ -4,8 +4,10 @@ const usersRouter = require('./users');
 const moviesRouter = require('./movies');
 const NotFoundError = require('../errors/not-found-err');
 
+const { OK } = require('../utils/constants');
+
 router.get('/', (req, res) => {
-  res.status(200).send('connected');
+  res.status(OK).send('connected');
 });
 router.use(usersRouter);
 router.use(moviesRouter);

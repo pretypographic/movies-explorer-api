@@ -25,7 +25,7 @@ router.post('/signin', celebrate({
   }),
 }), signin);
 // авторизовать пользователя
-router.post('/signout', celebrate({
+router.post('/signout', auth, celebrate({
   body: Joi.object().keys({}),
 }), signout);
 // удалить токен

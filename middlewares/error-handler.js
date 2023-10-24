@@ -5,12 +5,14 @@ const Forbidden = require('../errors/forbidden');
 const NotFoundError = require('../errors/not-found-err');
 const Conflict = require('../errors/conflict');
 
-const BAD_REQUEST = 400;
-const ACCESS_DENIED = 401;
-const FORBIDDEN = 403;
-const NOT_FOUND = 404;
-const CONFLICT = 409;
-const INTERNAL_SERVER_ERROR = 500;
+const {
+  BAD_REQUEST,
+  ACCESS_DENIED,
+  FORBIDDEN,
+  NOT_FOUND,
+  CONFLICT,
+  INTERNAL_SERVER_ERROR,
+} = require('../utils/constants');
 
 module.exports = (error, req, res, next) => {
   if (error instanceof BadRequestError) {
