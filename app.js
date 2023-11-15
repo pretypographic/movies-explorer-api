@@ -31,6 +31,7 @@ app.use(
     directives: {
       defaultSrc: ["'self'"],
       connectSrc: ["'self'", 'https://api.cu2ewa.nomoredomainsrocks.ru', 'https://api.nomoreparties.co'],
+      imgSrc: ["'self'", 'data:'],
     },
   }),
 );
