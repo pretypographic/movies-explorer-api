@@ -25,6 +25,14 @@ app.use(cors({
 
 app.use(limiter);
 app.use(helmet());
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      connectSrc: ["'self'", 'https://api.cu2ewa.nomoredomainsrocks.ru'],
+    },
+  }),
+);
 app.use(express.json());
 app.use(cookieParser());
 
