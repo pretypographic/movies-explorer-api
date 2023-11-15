@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const userSchema = require('./user');
 
 const movieSchema = new mongoose.Schema({
+  id: {
+    type: Number,
+    required: true,
+  },
   country: {
     type: String,
     required: true,
@@ -23,26 +27,10 @@ const movieSchema = new mongoose.Schema({
     required: true,
   },
   image: {
-    type: String,
+    type: Object,
     required: true,
-    validate: {
-      validator(v) {
-        return /^(http|https):\/\/[a-z0-9\-_.~:/?#[\]@!$&'()*+,;=]+$/i.test(v);
-      },
-      message: (props) => `${props.value} is not a valid URL reference`,
-    },
   },
   trailerLink: {
-    type: String,
-    required: true,
-    validate: {
-      validator(v) {
-        return /^(http|https):\/\/[a-z0-9\-_.~:/?#[\]@!$&'()*+,;=]+$/i.test(v);
-      },
-      message: (props) => `${props.value} is not a valid URL reference`,
-    },
-  },
-  thumbnail: {
     type: String,
     required: true,
     validate: {
@@ -55,10 +43,6 @@ const movieSchema = new mongoose.Schema({
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: userSchema,
-    required: true,
-  },
-  movieId: {
-    type: Number,
     required: true,
   },
   nameRU: {

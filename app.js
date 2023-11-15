@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
 require('dotenv').config();
 
-// const path = require('path');
+const path = require('path');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const limiter = require('./middlewares/limiter');
@@ -18,14 +18,17 @@ const errorHandler = require('./middlewares/error-handler');
 
 mongoose.connect(MONGODB_URI);
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ['http://cu2ewa.nomoredomainsrocks.ru', 'https://cu2ewa.nomoredomainsrocks.ru'],
+  credentials: true,
+}));
 
 app.use(limiter);
 app.use(helmet());
 app.use(express.json());
 app.use(cookieParser());
 
-// app.use(express.static(path.join(__dirname, '../frontend/build')));
+app.use(express.static(path.join(__dirname, '../movies-explorer-frontend/build')));
 app.use(requestLogger);
 app.use(index);
 app.use(errorLogger);
