@@ -25,11 +25,12 @@ app.use(cors({
 
 app.use(limiter);
 app.use(helmet());
+app.use(helmet());
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
       defaultSrc: ["'self'"],
-      connectSrc: ["'self'", 'https://api.cu2ewa.nomoredomainsrocks.ru'],
+      connectSrc: ["'self'", 'https://api.cu2ewa.nomoredomainsrocks.ru', 'https://api.nomoreparties.co'],
     },
   }),
 );
