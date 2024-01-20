@@ -1,23 +1,21 @@
 # movies-explorer-api
-Проект выпускника @pretypographic
+**Graduate Project by @pretypographic**
 
-## Описание
-Этот API позволяет управлять данными фильмов и пользователями в сервисе Movies Explorer. Он предоставляет функциональность для поиска, сохранения и управления данными фильмов, а также для регистрации, аутентификации и управления профилем пользователей. Проект использует различные технологии, включая Express, MongoDB, и другие библиотеки, для обеспечения безопасности и эффективной работы сервиса.
+## Description
+This API facilitates the management of movie and user data in the Movies Explorer service. It provides functionality for searching, saving, and managing movie data, as well as for user registration, authentication, and profile management. The project utilizes various technologies, including Express and MongoDB, along with other libraries, to ensure secure and efficient service operation.
 
-## Структура проекта
+## Project Structure
+- `/routes` - folder with router files
+- `/controllers` - folder with controller files for users and movies
+- `/models` - folder with files describing the schemas for users and movies
+- `/middlewares` - folder with middleware handlers, including logging and request rate limiting
 
-- `/routes` - папка с файлами роутера
-- `/controllers` - папка с файлами контроллеров пользователей и фильмов
-- `/models` - папка с файлами описания схем пользователей и фильмов
-- `/middlewares` - папка с промежуточными обработчиками, включая логгирование и ограничение запросов
+## Running the Project
+To start the server, use one of the following commands:
 
-## Запуск проекта
+`npm run start` # starts the server in regular mode
+`npm run dev` # starts the server with hot-reload support for convenient development
 
-Чтобы запустить сервер, используй одну из следующих команд:
+## Additional Information
 
-- `npm run start` - запускает сервер в режиме обычного выполнения
-- `npm run dev` - запускает сервер с поддержкой hot-reload для удобной разработки
-
-## Дополнительная информация
-
-Ссылка на развернутый проект: [api.cu2ewa.nomoredomainsrocks.ru](api.cu2ewa.nomoredomainsrocks.ru)
+Deployed Project Link: [api.cu2ewa.nomoredomainsrocks.ru](api.cu2ewa.nomoredomainsrocks.ru)
